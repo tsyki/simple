@@ -1,6 +1,8 @@
 package jp.gr.java_conf.tsyki.ide;
 
 import javafx.application.Application;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
@@ -28,6 +30,16 @@ public class App extends Application {
         pane.setTop( codeEditTextArea);
         pane.setCenter( stdoutTextArea);
         pane.setBottom( runButton);
+
+        runButton.setOnAction( new EventHandler<ActionEvent>() {
+
+            public void handle( ActionEvent event) {
+                stdoutTextArea.setText( "start compile.");
+                // TODO コンパイル
+                // TODO コンパイル結果の表示
+            }
+        });
+
         Scene scene = new Scene( pane, 640, 480);
         primaryStage.setScene( scene);
 
